@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "ton email pour github"
+read email
+echo "ton nom pour github"
+read name
 af=".bash_aliases"
 
 touch ~/$af
@@ -19,7 +23,7 @@ sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl 
 #sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian stable"
 
 # install docker && docker-compose
-sudo apt update && sudo apt upgrade -y && sudo apt install docker.io #docker-ce docker-ce-cli containerd.io -y
+sudo apt update && sudo apt upgrade -y && sudo apt install docker.io -y #docker-ce docker-ce-cli containerd.io -y
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose && sudo chmod +x /usr/bin/docker-compose
 # add docker's right for user
 sudo usermod -aG docker $USER
@@ -38,11 +42,11 @@ sudo apt install atom -y
 #install postman
 snap install postman -y
 
+#param git
+git config --global user.name "$name"
+git config --global user.email "$email"
+
 #reboot
 sudo reboot now
-
-#param git
-#git config --global user.name "bentowski"
-#git config --global user.email "benjamin.baudry@hotmail.com"
 
 #source ~/.bash_aliases
